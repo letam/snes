@@ -14,13 +14,11 @@
       EJS_gameName = "EarthBound";
       EJS_color = "#0064ff";
       EJS_startOnLoaded = true;
-      EJS_pathtodata =
-        "https://rawcdn.githack.com/EmulatorJS/EmulatorJS/main/data/";
+      EJS_pathtodata = "code/";
       EJS_gameUrl = "games/" + EJS_gameName + ".smc";
     </script>
     <script>
-      let loader_path =
-        "https://rawcdn.githack.com/EmulatorJS/EmulatorJS/main/data/loader.js";
+      let loader_path = EJS_pathtodata + "loader.js";
       let loadGame = () => {
         let loader_script = document.createElement("script");
         loader_script.src = loader_path;
