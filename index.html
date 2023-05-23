@@ -1,31 +1,35 @@
 <html>
-    <head>
-        <!--HTML file auto generated using EmulatorJS codehelper-->
-    </head>
-    <body>
-        <div style="width:640px;height:480px;max-width:100%">
-            <div id="game"></div>
+  <head>
+    <!--HTML file auto generated using EmulatorJS codehelper-->
+  </head>
+  <body>
+    <div style="width: 640px; height: 480px; max-width: 100%">
+      <div id="game"></div>
 
-				<button id="load-game" onclick="loadGame()">Load Game</button>
-        </div>
-        <script>
-            EJS_player = "#game";
-            EJS_core = "snes";
-            EJS_gameName = "EarthBound";
-            EJS_color = "#0064ff";
-            EJS_startOnLoaded = true;
-            EJS_pathtodata = "https://rawcdn.githack.com/EmulatorJS/EmulatorJS/main/data/";
-            EJS_gameUrl = "games/" + EJS_gameName + ".smc";
-        </script>
-		  <script>
-			  let loader_path = 'https://rawcdn.githack.com/EmulatorJS/EmulatorJS/main/data/loader.js';
-			  let loadGame = () => {
-				  let loader_script = document.createElement('script');
-				  loader_script.src = loader_path;
-				  document.getElementById("script-placeholder").appendChild(loader_script);
-				  document.getElementById("load-game").remove();
-			  }
-		  </script>
-		  <div id="script-placeholder"></div>
-    </body>
+      <button id="load-game" onclick="loadGame()">Load Game</button>
+    </div>
+    <script>
+      EJS_player = "#game";
+      EJS_core = "snes";
+      EJS_gameName = "EarthBound";
+      EJS_color = "#0064ff";
+      EJS_startOnLoaded = true;
+      EJS_pathtodata =
+        "https://rawcdn.githack.com/EmulatorJS/EmulatorJS/main/data/";
+      EJS_gameUrl = "games/" + EJS_gameName + ".smc";
+    </script>
+    <script>
+      let loader_path =
+        "https://rawcdn.githack.com/EmulatorJS/EmulatorJS/main/data/loader.js";
+      let loadGame = () => {
+        let loader_script = document.createElement("script");
+        loader_script.src = loader_path;
+        document
+          .getElementById("script-placeholder")
+          .appendChild(loader_script);
+        document.getElementById("load-game").remove();
+      };
+    </script>
+    <div id="script-placeholder"></div>
+  </body>
 </html>
