@@ -3593,7 +3593,6 @@ window.EJS_main = function(_0xa88a13, _0x17edbf, _0x2c1832) {
                     _0x17edbf = this,
                     _0x2c1832 = this.elements.dialogs.gamepad.querySelector('.' .concat(_0x378b5c.classNames.overlay));
                 _0x1093f4.call(this, document.body, 'keydown keyup', function(_0x459b32) {
-                    console.log('debug: triggered "keydown keyup" _0x459b32', _0x459b32)
                     if (_0x459b32.which >= 0x70 && _0x459b32.which <= 0x7b);
                     else {
                         let _0x335c01 = !_this.elements.dialogs.gamepad.hidden && !_0x2c1832.hidden,
