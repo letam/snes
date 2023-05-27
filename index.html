@@ -6,30 +6,35 @@
     <div style="width: 640px; height: 480px; max-width: 100%">
       <div id="game"></div>
 
-      <button id="load-game" onclick="loadGame()">Load Game</button>
+      <button id="load-game">Load Game</button>
     </div>
-    <script>
-      EJS_player = "#game";
-      EJS_core = "snes";
-      EJS_gameName = "EarthBound";
-      EJS_color = "#0064ff";
-      EJS_startOnLoaded = true;
-      EJS_pathtodata = "code/";
-      EJS_gameUrl = "games/" + EJS_gameName + ".smc";
-      states_path = "states/";
-      EJS_loadStateURL = states_path + "EarthBound.state";
-      EJS_DEBUG_XX = true;
+    <script type="module">
+      window.EJS_player = "#game";
+      window.EJS_core = "snes";
+      window.EJS_gameName = "EarthBound";
+      window.EJS_color = "#0064ff";
+      window.EJS_startOnLoaded = true;
+      window.EJS_pathtodata = "code/";
+      window.EJS_gameUrl = "games/" + EJS_gameName + ".smc";
+      window.states_path = "states/";
+      window.EJS_loadStateURL = states_path + "EarthBound.state";
+      window.EJS_DEBUG_XX = true;
     </script>
-    <script>
+    <script type="module">
       let loader_path = EJS_pathtodata + "loader.js";
       let loadGame = () => {
         let loader_script = document.createElement("script");
+        loader_script.type = "module";
         loader_script.src = loader_path;
         document
           .getElementById("script-placeholder")
           .appendChild(loader_script);
+        document
+          .getElementById("load-game")
+          .removeEventListener("click", loadGame);
         document.getElementById("load-game").remove();
       };
+      document.getElementById("load-game").addEventListener("click", loadGame);
       document.getElementById("load-game").focus();
     </script>
     <div id="script-placeholder"></div>

@@ -34,6 +34,7 @@
     function loadScript(file) {
         return new Promise(function (resolve, reject) {
             let script = document.createElement('script');
+            script.type = 'module';
             script.src = function() {
                 if ('undefined' != typeof EJS_paths && typeof EJS_paths[file] == 'string') {
                     return EJS_paths[file];
