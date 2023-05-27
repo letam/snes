@@ -1,3 +1,7 @@
+import { dlog, sleep } from '/code/custom/index.js';
+import { keydownKeyupSpeed, createKeydownEvent, createKeyupEvent } from '/code/custom/keyboard.js';
+
+
 window.EJS_main = function(_0xa88a13, _0x17edbf, _0x2c1832) {
     'use strict';
     window.EJS_RESET_VARS = [];
@@ -7126,4 +7130,44 @@ window.EJS_main = function(_0xa88a13, _0x17edbf, _0x2c1832) {
     
     _0x3dbc76.defaults = {};
     _0x17edbf.default = _0x3dbc76;
+
+
+// BEGIN CUSTOM CODE {
+
+function simulateInputForKey(_0x459b32) {
+  let _0x2eb03e = "keydown" === _0x459b32.type;
+  Object.keys(_0x378b5c.controllers).forEach(function (_0x3863d2) {
+    Object.keys(_0x378b5c.controllers[_0x3863d2]).forEach(function (_0x509939) {
+      parseInt(_0x378b5c.controllers[_0x3863d2][_0x509939].value, 0xa) ===
+        _0x459b32.keyCode &&
+        (_0x2eb03e
+          ? _0x509939 >= 0x10 && _0x509939 <= 0x17
+            ? _0x378b5c.simulateInput(_0x3863d2, _0x509939, 0x7fff)
+            : _0x378b5c.simulateInput(_0x3863d2, _0x509939, 1)
+          : _0x378b5c.simulateInput(_0x3863d2, _0x509939, 0));
+    });
+  });
+}
+
+window.simulateInputForKey = simulateInputForKey;
+
+window.simulateInputForKeyTap = function (key) {
+  let keydownEvent = createKeydownEvent(key);
+  let keyupEvent = createKeyupEvent(key);
+
+  simulateInputForKey(keydownEvent);
+  setTimeout(() => simulateInputForKey(keyupEvent), keydownKeyupSpeed);
+};
+
+window.test = async function (value = 10) {
+  let i = 0;
+  while (i < value) {
+    console.log("test i", i);
+    setTimeout(() => simulateInputForKeyTap("Down"), keydownKeyupSpeed);
+    i++;
+    await sleep(keydownKeyupSpeed);
+  }
+};
+
+// } END CUSTOM CODE
 }
