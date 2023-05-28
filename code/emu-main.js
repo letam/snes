@@ -7166,6 +7166,12 @@ window.test = async function (value = 10) {
     i++;
     await sleep(keydownKeyupSpeed);
   }
+
+  document.body.addEventListener("keydown", (event) => {
+    if (event.key === "n") {
+      simulateInputForKeyTap("Down");
+    }
+  });
 };
 
 // } END CUSTOM CODE
