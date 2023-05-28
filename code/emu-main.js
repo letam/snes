@@ -7158,6 +7158,27 @@ window.simulateInputForKeyTap = function (key) {
   setTimeout(() => simulateInputForKey(keyupEvent), keydownKeyupSpeed);
 };
 
+window.mapKeyboardPressToKey = function (keyPressed, keyTarget) {
+  let ifMatchThenPress = (event) => {
+    if (event.key === keyPressed) {
+      let keydownEvent = createKeydownEvent(keyTarget);
+      simulateInputForKey(keydownEvent);
+
+      let keyupEvent = createKeyupEvent(keyTarget);
+      let ifMatchThenTrigger = (event) => {
+        if (event.key === keyPressed) {
+          simulateInputForKey(keyupEvent);
+          document.body.removeEventListener("keyup", ifMatchThenTrigger);
+        }
+      };
+      document.body.addEventListener("keyup", ifMatchThenTrigger);
+    }
+  };
+
+  document.body.addEventListener("keydown", ifMatchThenPress);
+  return () => document.body.removeEventListener("keydown", ifMatchThenPress);
+};
+
 window.test = async function (value = 10) {
   let i = 0;
   while (i < value) {
@@ -7166,13 +7187,13 @@ window.test = async function (value = 10) {
     i++;
     await sleep(keydownKeyupSpeed);
   }
-
-  document.body.addEventListener("keydown", (event) => {
-    if (event.key === "n") {
-      simulateInputForKeyTap("Down");
-    }
-  });
 };
+
+
+mapKeyboardPressToKey('j', 'Left')
+mapKeyboardPressToKey('i', 'Up')
+mapKeyboardPressToKey('l', 'Right')
+mapKeyboardPressToKey('k', 'Down')
 
 // } END CUSTOM CODE
 }
