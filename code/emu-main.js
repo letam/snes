@@ -1,6 +1,7 @@
 import { dlog, sleep } from '/code/custom/index.js';
 import { keydownKeyupSpeed, createKeydownEvent, createKeyupEvent } from '/code/custom/keyboard.js';
 
+window.FORCE_COREVER_2_ON_IOS = true;
 
 window.EJS_main = function(_0xa88a13, _0x17edbf, _0x2c1832) {
     'use strict';
@@ -2132,7 +2133,7 @@ window.EJS_main = function(_0xa88a13, _0x17edbf, _0x2c1832) {
                                 _0x28ee7f = e.data;
 
                             let status = _0x4d7024.loading.querySelector('.' .concat(_0x4fce24.p1));
-                            if (!(_this.config.oldCores === true && _0x28ee7f.oldCores[_this.system]) && _0x28ee7f.newCores[getSystem(_this.system)] && (_0x2d904a.wasm || Boolean(_0x28ee7f.newCores[getSystem(_this.system)].asmjs)) && !_0x59aa33.isIos) {
+                            if (!(_this.config.oldCores === true && _0x28ee7f.oldCores[_this.system]) && _0x28ee7f.newCores[getSystem(_this.system)] && (_0x2d904a.wasm || Boolean(_0x28ee7f.newCores[getSystem(_this.system)].asmjs)) && (!_0x59aa33.isIos || window.FORCE_COREVER_2_ON_IOS)) {
                                 _this.coreVer = 2;
                                 delete Module.readAsync;
                                 Module.INITIAL_MEMORY = Module.TOTAL_MEMORY;
