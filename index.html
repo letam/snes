@@ -35,6 +35,16 @@
 
       <button id="load-game">Enter</button>
     </div>
+
+    <!-- Configure display for mobile devices -->
+    <script>
+      let isMobile = /Mobile/.test(navigator.userAgent);
+      if (isMobile) {
+        document.getElementById("game-container").style.width = "100%";
+        document.getElementById("game-container").style.height = "auto";
+      }
+    </script>
+
     <script type="module">
       window.EJS_player = "#game";
       window.EJS_core = "snes";
