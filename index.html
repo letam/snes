@@ -1,12 +1,39 @@
 <html>
   <head>
     <!--HTML file auto generated using EmulatorJS codehelper-->
+    <style>
+      body {
+        background-color: rgb(51, 51, 51);
+      }
+
+      #game-container {
+        width: 640px;
+        height: 480px;
+        max-width: 100%;
+        margin: 0 auto;
+      }
+
+      #load-game {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 2em;
+        padding: 0.5em 1em;
+        border-radius: 0.5em;
+        border: 0.1em solid #fff;
+        background-color: #000;
+        color: #fff;
+        cursor: pointer;
+        outline: none;
+      }
+    </style>
   </head>
   <body>
-    <div style="width: 640px; height: 480px; max-width: 100%">
+    <div id="game-container">
       <div id="game"></div>
 
-      <button id="load-game">Load Game</button>
+      <button id="load-game">Enter</button>
     </div>
     <script type="module">
       window.EJS_player = "#game";
