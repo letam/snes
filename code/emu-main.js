@@ -1,5 +1,5 @@
-import { dlog, sleep } from '/code/custom/index.js';
-import { keydownKeyupSpeed, createKeydownEvent, createKeyupEvent } from '/code/custom/keyboard.js';
+import { dlog, sleep } from './custom/index.js';
+import { keydownKeyupSpeed, createKeydownEvent, createKeyupEvent } from './custom/keyboard.js';
 
 window.FORCE_COREVER_2_ON_IOS = true;
 

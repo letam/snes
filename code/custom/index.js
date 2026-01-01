@@ -1,4 +1,4 @@
-export { keyToCode } from "/code/custom/keyboard.js";
+export { keyToCode } from "./keyboard.js";
 
 export function dlog() {
   console.log("dlog", ...arguments);
